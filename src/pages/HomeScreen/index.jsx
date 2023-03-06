@@ -136,30 +136,32 @@ const Homescreen = () => {
           of <span className="font-semibold">{listPokemon?.count}</span> total
         </p>
       )}
-      <div className="grid grid-cols-auto-fit md:grid-cols-2 gap-6 mb-12 mt-5">
+      <div className="mb-12 mt-5">
         {!listPokemon.isLoading ? (
           listPokemon?.data?.length > 0 ? (
-            listPokemon.data.map((el, index) => (
-              <div
-                key={index}
-                onClick={() => {
-                  setModalOpen(!modalOpen);
-                  setDetailData(el);
-                }}
-                className="cursor-pointer hover:scale-105 transition-all">
-                <Card
-                  index={index}
-                  name={el?.name || "no name"}
-                  images={
-                    el?.sprites?.other?.dream_world?.front_default ||
-                    el?.sprites?.other?.["official-artwork"]?.front_default ||
-                    el?.sprites?.front_default
-                  }
-                  color={filterTypePokemon(el?.types?.[0]?.type?.name)}
-                  type={el?.types?.[0]?.type?.name}
-                />
-              </div>
-            ))
+            <div className="grid grid-cols-auto-fit md:grid-cols-2 gap-6">
+              {listPokemon.data.map((el, index) => (
+                <div
+                  key={index}
+                  onClick={() => {
+                    setModalOpen(!modalOpen);
+                    setDetailData(el);
+                  }}
+                  className="cursor-pointer hover:scale-105 transition-all">
+                  <Card
+                    index={index}
+                    name={el?.name || "no name"}
+                    images={
+                      el?.sprites?.other?.dream_world?.front_default ||
+                      el?.sprites?.other?.["official-artwork"]?.front_default ||
+                      el?.sprites?.front_default
+                    }
+                    color={filterTypePokemon(el?.types?.[0]?.type?.name)}
+                    type={el?.types?.[0]?.type?.name}
+                  />
+                </div>
+              ))}
+            </div>
           ) : (
             <span>no more data</span>
           )
