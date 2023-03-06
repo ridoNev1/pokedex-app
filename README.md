@@ -4,6 +4,10 @@
 2. run command 'yarn install' for installing dependencies
 3. run command 'yarn start' for starting the app.
 
+## git preview
+
+https://ridonev1.github.io/pokedex-app/
+
 ## web preview
 
 ![Screenshot 2023-03-06 032340](https://user-images.githubusercontent.com/64463093/222984434-b2b35235-ef96-450b-a912-f9e7e7de7839.png)
